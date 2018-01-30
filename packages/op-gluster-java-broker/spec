@@ -1,0 +1,7 @@
+---
+name: op-gluster-java-broker
+
+dependencies:
+
+files:
+- op-glusterfs-java-broker/**/*

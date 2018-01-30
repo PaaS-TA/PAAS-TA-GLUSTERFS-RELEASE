@@ -1,0 +1,48 @@
+#!/bin/bash -e
+
+set -e
+
+export JOB_NAME='mysql'
+source /var/vcap/jobs/mysql/helpers/ctl_setup.sh $JOB_NAME
+
+case $1 in
+
+  start)
+    echo "start script: starting mcaridb..."
+
+    pid_guard $PIDFILE $JOB_NAME
+
+    cd /var/vcap/packages/mariadb 
+
+    if ! test -d /var/vcap/store/mysql; then
+      echo "start script: making and running /var/vcap/packages/mariadb/scripts/mysql_install_db"
+      mkdir -p /var/vcap/store/mysql
+      ./scripts/mysql_install_db \
+             --basedir=/var/vcap/packages/mariadb \
+             --user=vcap \
+             --datadir=/var/vcap/store/mysql 
+
+    fi
+ 
+    mkdir -p /etc/mysql
+    ln -sf /var/vcap/jobs/mysql/config/my.cnf /etc/mysql/my.cnf 
+
+    chown -R vcap:vcap /var/vcap/store/mysql
+
+    ./bin/mysqld_safe &
+    ;;
+
+  stop)
+
+    echo "stop script: stopping " 
+    
+    kill_and_wait $PIDFILE
+    
+    echo "stop script: completed stopping mariadb_ctrl"
+    ;;
+
+  *)
+    echo "Usage: mysql_ctl {start|stop}"
+    ;;
+
+esac

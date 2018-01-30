@@ -1,0 +1,17 @@
+# abort script on any command that exits with a non zero value
+set -e
+
+MARIADB_VERSION=10.0.21
+
+tar xzf mariadb/mariadb-${MARIADB_VERSION}.tar.gz
+(
+  set -e
+  cd mariadb-${MARIADB_VERSION}
+  
+  BUILD/autorun.sh
+  ./configure --prefix=${BOSH_INSTALL_TARGET}
+  make
+  sudo make install
+
+  echo -n "${MARIADB_VERSION}-MariaDB" > ${BOSH_INSTALL_TARGET}/VERSION
+)

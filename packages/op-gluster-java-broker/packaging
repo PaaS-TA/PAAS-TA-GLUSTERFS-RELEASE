@@ -1,0 +1,7 @@
+# abort script on any command that exits with a non zero value
+set -e
+
+echo "Copy Service Broker ..."
+
+cp -a op-glusterfs-java-broker/* ${BOSH_INSTALL_TARGET}
+

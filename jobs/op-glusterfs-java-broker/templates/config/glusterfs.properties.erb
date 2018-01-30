@@ -1,0 +1,14 @@
+glusterfs.authurl=http://<%= p('glusterfs_url')%>:5000
+glusterfs.endpoint=http://<%= p('glusterfs_url')%>:35357
+glusterfs.swiftproxy=http://<%= p('glusterfs_url')%>:8080
+glusterfs.tenantname=<%= p('glusterfs_tenantname')%>
+glusterfs.username=<%= p('glusterfs_username')%>
+glusterfs.password=<%= p('glusterfs_password')%>
+
+glusterfs.uri.account=/v1/KEY_#TENANT_ID
+glusterfs.uri.auth=/v2.0/tokens
+glusterfs.uri.createtenant=/v2.0/tenants
+glusterfs.uri.deletetenant=/v2.0/tenants/#TENANT_ID
+glusterfs.uri.createusers=/v2.0/users
+glusterfs.uri.userinfo=/v2.0/users?name=#USER_NAME
+glusterfs.uri.deleteusers=/v2.0/users/#USER_ID

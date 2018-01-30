@@ -1,0 +1,5 @@
+check process op-glusterfs-java-broker
+  with pidfile /var/vcap/sys/run/op-glusterfs-java-broker/op-glusterfs-java-broker.pid
+  start program "/var/vcap/jobs/op-glusterfs-java-broker/bin/monit_debugger op-glusterfs-java-broker_ctl '/var/vcap/jobs/op-glusterfs-java-broker/bin/op-glusterfs-java-broker_ctl start'"
+  stop program "/var/vcap/jobs/op-glusterfs-java-broker/bin/monit_debugger op-glusterfs-java-broker_ctl '/var/vcap/jobs/op-glusterfs-java-broker/bin/op-glusterfs-java-broker_ctl stop'"
+  group vcap

@@ -1,0 +1,6 @@
+---
+final_name: openpaas-glusterfs
+blobstore:
+  provider: local
+  options:
+    blobstore_path: /tmp/glusterfs-blobs

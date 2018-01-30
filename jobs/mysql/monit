@@ -1,0 +1,5 @@
+check process mariadb
+  with pidfile /var/vcap/sys/run/mysql/mysql.pid
+  start program "/var/vcap/jobs/mysql/bin/monit_debugger mariadb_ctl '/var/vcap/jobs/mysql/bin/mariadb_ctl start'"
+  stop program "/var/vcap/jobs/mysql/bin/monit_debugger mariadb_ctl '/var/vcap/jobs/mysql/bin/mariadb_ctl stop'"
+  group vcap
