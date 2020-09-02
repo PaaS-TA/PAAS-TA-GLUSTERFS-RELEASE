@@ -16,7 +16,7 @@
 # escpecially if they contain "#" chars...
 # Remember to edit /etc/mysql/debian.cnf when changing the socket location.
 [client]
-port		= 3306
+port		= <%= p('mysql_port') %>
 socket		= /var/vcap/store/mysql/mysqld.sock
 
 # Here is entries for some specific programs
@@ -34,7 +34,7 @@ nice		= 0
 user		= vcap
 pid-file	= /var/vcap/sys/run/mysql/mysql.pid
 socket		= /var/vcap/sys/run/mysql/mysqld.sock
-port		= 3306
+port		= <%= p('mysql_port') %>
 basedir		= /var/vcap/packages/mariadb
 datadir		= /var/vcap/store/mysql
 tmpdir		= /var/vcap/sys/tmp/mysql

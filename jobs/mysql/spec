@@ -11,9 +11,20 @@ templates:
   
 
 packages:
- - mariadb
+  - mariadb
+
+provides:
+  - name: mariadb_link
+    type: mariadb
+    properties:
+    - mysql_port
+    - admin_username
+    - admin_password
 
 properties:
+  mysql_port:
+    description: 'MySQL port'
+    default: 13306
   admin_username:
     description: 'Username for the MySQL server admin user'
     default: 'root'

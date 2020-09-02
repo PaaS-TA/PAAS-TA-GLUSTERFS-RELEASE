@@ -8,7 +8,7 @@ CF_ADMIN_PASSWORD='<%= p("cf.admin_password") %>'
 CF_SKIP_SSL_VALIDATION='<%= p("cf.skip_ssl_validation") %>'
 
 BROKER_NAME='<%= p("broker.name") %>'
-BROKER_URL='<%= p("broker.protocol") %>://<%= p("broker.host") %>:<%= p("broker.port") %>'
+BROKER_URL='<%= p("broker.protocol") %>://<%= link('broker_link').instances[0].address%>:<%= p("broker.port") %>'
 BROKER_USERNAME='<%= p("broker.username") %>'
 BROKER_PASSWORD='<%= p("broker.password") %>'
 

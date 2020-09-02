@@ -1,9 +1,14 @@
 ---
 name: broker-registrar
 packages:
-- cli
+  - cli
 templates:
   errand.sh.erb: bin/run
+
+consumes:
+  - name: broker_link
+    type: broker
+ 
 properties:
   cf.api_url:
     description: 'Full URL of Cloud Foundry API'
@@ -19,8 +24,6 @@ properties:
   broker.protocol:
     description: 'Protocol (http/https) provided to the Cloud Controller when registering/deregistering the broker'
     default: https
-  broker.host:
-    description: 'Host address of the service broker'
   broker.port:
     description: 'Port for the service broker'
     default: 443

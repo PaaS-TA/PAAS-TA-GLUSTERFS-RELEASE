@@ -11,17 +11,18 @@ templates:
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
 
 packages:
-- openjdk
-- op-gluster-java-broker
+  - openjdk
+  - op-gluster-java-broker
+
+provides:
+  - name: broker_link
+    type: broker
+
+consumes:
+  - name: mariadb_link
+    type: mariadb
 
 properties:
-  jdbc_ip:
-    description: 'MySQL server ip'
-  jdbc_pwd:
-    description: 'MySQL server pwd'
-  jdbc_port:
-    description: 'MySQL server port'
-    default: 3306
   log_dir:
     description: 'log directory'
   log_file:
