@@ -1,14 +1,28 @@
-# open-glusterfs-release
+## PAAS-TA-GLUSTERFS-RELEASE   
 
-##1. Glusterfs Configuration
-- mysql :: 1 machine
-- paasta-glusterfs-broker :: 1 machine
+### Notices     
+  - Use PAAS-TA-GLUSTERFS-RELEASE >= v.2.0.1    
+    - PaaS-TA >= v.5.0.2    
+    - service-deployment >= v5.0.2    
+  - Use PAAS-TA-GLUSTERFS-RELEASE =< v.2.0.0     
+    - PaaS-TA =< v.5.0.1   
+    - service-deployment =< v5.0.1    
 
-##2. Download
-- $wget -O download.zip http://45.248.73.44/index.php/s/HJ6N7BQYTwbdGML/download
-- $unzip download.zip
+### PaaS-TA Glusterfs Release Configuration   
+  - mysql : 1 machine   
+  - paasta-glusterfs-broker : 1 machine   
 
-##3. Deploy
->`$ cd $BOSH_RELEASE_DIR`<br>
->`$ bosh deployment openpaas-glusterfs-vsphere-1.0.yml`<br>
->`$ bosh deploy`
+### Create PaaS-TA Glusterfs Release   
+  - Download the latest PaaS-TA Glusterfs Release   
+    ```   
+    $ git clone https://github.com/PaaS-TA/PAAS-TA-GLUSTERFS-RELEASE.git   
+    $ cd PAAS-TA-GLUSTERFS-RELEASE   
+    ```   
+  - Create PaaS-TA Cubrid Release    
+    ```   
+    ## <VERSION> :: release version (e.g. 2.0.1)   
+    ## <RELEASE_TARBALL_PATH> :: release file path (e.g. /home/ubuntu/workspace/paasta-glusterfs-<VERSION>.tgz)   
+    $ bosh -e <bosh_name> create-release --name=paasta-glusterfs --version=<VERSION> --tarball=<RELEASE_TARBALL_PATH> --force   
+    ```    
+### Deployment   
+- https://github.com/PaaS-TA/service-deployment   
