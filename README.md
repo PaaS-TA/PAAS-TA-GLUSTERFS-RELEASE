@@ -18,7 +18,7 @@
     $ git clone https://github.com/PaaS-TA/PAAS-TA-GLUSTERFS-RELEASE.git   
     $ cd PAAS-TA-GLUSTERFS-RELEASE   
     ```   
-  - Create PaaS-TA Cubrid Release    
+  - Create PaaS-TA Glusterfs Release    
     ```   
     ## <VERSION> :: release version (e.g. 2.0.1)   
     ## <RELEASE_TARBALL_PATH> :: release file path (e.g. /home/ubuntu/workspace/paasta-glusterfs-<VERSION>.tgz)   
