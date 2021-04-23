@@ -1,0 +1,3 @@
+[submodule "src/op-glusterfs-java-broker"]
+	path = src/op-glusterfs-java-broker
+	url = https://github.com/PaaS-TA/OPENPAAS-SERVICE-JAVA-BROKER-GLUSTERFS
