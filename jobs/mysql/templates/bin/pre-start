@@ -1,0 +1,55 @@
+#!/bin/bash
+
+set -e
+echo 'pre-start'
+DATA_DIR=/var/vcap/store/mariadb-data
+JOB_NAME=mysql
+RUN_DIR=/var/vcap/sys/run/${JOB_NAME}
+TMP_DIR=/var/vcap/sys/tmp/${JOB_NAME}
+
+echo "DATA_DIR=$DATA_DIR"
+
+if [ ! -d "$DATA_DIR" ]; then
+
+  echo 1 @JOB_NAME
+  BASE_DIR=/var/vcap/store/$JOB_NAME
+  PKG_NAME=mariadb
+  CONF_FILE=$BASE_DIR/my.cnf
+  echo 1 @JOB_NAME
+  tar zxf /var/vcap/packages/$PKG_NAME/mariadb-10.5.9-linux-x86_64.tar.gz -C /var/vcap/store/
+
+  ln -s /var/vcap/store/mariadb-10.5.9-linux-x86_64 $BASE_DIR
+  sudo chown -R vcap $BASE_DIR
+  sudo chmod 777 /tmp
+  sudo chown vcap:vcap /var/vcap/sys/log/mysql
+
+  mkdir -p $TMP_DIR
+  chown vcap:vcap ${TMP_DIR}
+  chmod 775 ${TMP_DIR}
+  
+  mkdir -p /var/vcap/store/mariadb-data
+  sudo chown -R vcap /var/vcap/store/mariadb-data
+
+#  if [ ! -d /usr/local/mysql ]; then
+#    echo "##### PRE-START :: BROKER-DATABASE :: link :: /usr/local/mysql -- ${BASE_DIR}"
+#    ln -s ${BASE_DIR} /usr/local/mysql
+#  fi
+
+  if [ ! -e /tmp/mysql.sock ]; then
+    echo "##### PRE-START :: BROKER-DATABASE :: link :: /tmp/mysql.sock -- ${RUN_DIR}/mysql.sock"
+    ln -sf ${RUN_DIR}/mysql.sock /tmp/mysql.sock
+  fi
+
+  cd $BASE_DIR
+  cp /var/vcap/jobs/$JOB_NAME/config/my.cnf my.cnf
+  sudo chown -R root .
+  #sudo ./scripts/mysql_install_db --defaults-file=$CONF_FILE --user=vcap
+  ./scripts/mysql_install_db --defaults-file=./my.cnf --user=vcap
+
+  echo 'export PATH=$PATH:'$BASE_DIR'/bin/' >> /home/vcap/.bashrc
+
+  <% if p('mariadb.cce_enable') %>
+  mkdir -p /usr/local/mysql/lib
+  cp -r /var/vcap/store/mysql/lib/plugin /usr/local/mysql/lib
+  <% end %>
+fi

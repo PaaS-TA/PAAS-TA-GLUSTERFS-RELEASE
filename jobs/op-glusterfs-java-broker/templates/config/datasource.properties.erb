@@ -5,3 +5,4 @@ jdbc.pwd = <%= link('mariadb_link').p('admin_password')%>
 jdbc.url = jdbc:mysql://<%= link('mariadb_link').instances[0].address%>:<%= link('mariadb_link').p('mysql_port')%>
 jdbc.host = <%= link('mariadb_link').instances[0].address%>
 jdbc.port = <%= link('mariadb_link').p('mysql_port')%>
+spring.datasource.driver-class-name = org.mariadb.jdbc.Driver

@@ -1,6 +1,9 @@
 ## PAAS-TA-GLUSTERFS-RELEASE   
 
-### Notices     
+### Notices        
+  - Use PAAS-TA-GLUSTERFS-RELEASE >= v.2.1.0 
+    - PaaS-TA >= v.5.5.0
+    - service-deployment >= v5.1.0
   - Use PAAS-TA-GLUSTERFS-RELEASE >= v.2.0.1    
     - PaaS-TA >= v.5.0.2    
     - service-deployment >= v5.0.2    
@@ -16,7 +19,11 @@
   - Download the latest PaaS-TA Glusterfs Release   
     ```   
     $ git clone https://github.com/PaaS-TA/PAAS-TA-GLUSTERFS-RELEASE.git   
-    $ cd PAAS-TA-GLUSTERFS-RELEASE   
+    $ cd PAAS-TA-GLUSTERFS-RELEASE
+
+    $ wget -O src.zip https://nextcloud.paas-ta.org/index.php/s/ERJXfYq8Gf6DY5s/download
+    $ unzip src.zip
+    $ rm -rf src.zip   
     ```   
   - Create PaaS-TA Glusterfs Release    
     ```   

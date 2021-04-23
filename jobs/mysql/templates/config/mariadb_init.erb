@@ -1,5 +1,15 @@
+<% if p("mariadb.cce_enable") %>
+        GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'                       IDENTIFIED VIA ed25519 USING PASSWORD('<%= p("admin_password") %>') WITH GRANT OPTION;
+        GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost'               IDENTIFIED VIA ed25519 USING PASSWORD('<%= p("admin_password") %>') WITH GRANT OPTION;
+        GRANT ALL PRIVILEGES ON *.* TO '<%= p('admin_username') %>'@'%' IDENTIFIED VIA ed25519 USING PASSWORD('<%= p("admin_password") %>') WITH GRANT OPTION;
+        ALTER USER 'root'@'localhost'                                   IDENTIFIED VIA ed25519 USING PASSWORD('<%= p("admin_password") %>');
+        ALTER USER '<%= p('admin_username') %>'@'%'                     IDENTIFIED VIA ed25519 USING PASSWORD('<%= p("admin_password") %>');
+        ALTER USER 'mariadb.sys'@'localhost'                            IDENTIFIED VIA ed25519 USING PASSWORD('<%= p("admin_password") %>');
+        ALTER USER 'vcap'@'localhost'                                   IDENTIFIED VIA ed25519 USING PASSWORD('<%= p("admin_password") %>');
+<% else %>
 GRANT ALL PRIVILEGES ON *.* TO '<%= p('admin_username') %>'@'%' WITH GRANT OPTION;
 UPDATE mysql.user SET Password=PASSWORD('<%= p('admin_password') %>') WHERE User='<%= p('admin_username') %>';
+<% end %>
 DELETE FROM mysql.user WHERE User='';
 FLUSH PRIVILEGES;
 DROP DATABASE IF EXISTS test;
