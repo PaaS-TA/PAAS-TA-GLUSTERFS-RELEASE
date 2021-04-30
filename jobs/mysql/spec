@@ -2,6 +2,7 @@
 name: mysql
 templates:
   bin/mariadb_ctl.erb: bin/mariadb_ctl
+  bin/pre-start: bin/pre-start
   bin/monit_debugger: bin/monit_debugger
   data/properties.sh.erb: data/properties.sh
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
@@ -31,3 +32,5 @@ properties:
   admin_password:
     description: 'Password for the MySQL server admin user'
     default: 'openpaas'
+  mariadb.cce_enable:
+    default: false

@@ -1,17 +1,20 @@
 # abort script on any command that exits with a non zero value
 set -e
 
-MARIADB_VERSION=10.0.21
+SRC_NAME=mariadb-10.5.9
 
-tar xzf mariadb/mariadb-${MARIADB_VERSION}.tar.gz
-(
-  set -e
-  cd mariadb-${MARIADB_VERSION}
-  
-  BUILD/autorun.sh
-  ./configure --prefix=${BOSH_INSTALL_TARGET}
-  make
-  sudo make install
-
-  echo -n "${MARIADB_VERSION}-MariaDB" > ${BOSH_INSTALL_TARGET}/VERSION
-)
+cp -r ${BOSH_COMPILE_TARGET}/mariadb/$SRC_NAME-linux-x86_64.tar.gz ${BOSH_INSTALL_TARGET}
+#MARIADB_VERSION=10.5.9
+## mariadb-10.5.9-linux-x86_64.tar.gz
+#tar xzf mariadb/mariadb-${MARIADB_VERSION}-linux-x86_64.tar.gz
+#(
+#  set -e
+#  cd mariadb-${MARIADB_VERSION}-linux-x86_64 
+#  
+#  BUILD/autorun.sh
+#  ./configure --prefix=${BOSH_INSTALL_TARGET}
+#  make
+#  sudo make install
+#
+#  echo -n "${MARIADB_VERSION}-MariaDB" > ${BOSH_INSTALL_TARGET}/VERSION
+#)

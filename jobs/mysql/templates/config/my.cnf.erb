@@ -35,11 +35,11 @@ user		= vcap
 pid-file	= /var/vcap/sys/run/mysql/mysql.pid
 socket		= /var/vcap/sys/run/mysql/mysqld.sock
 port		= <%= p('mysql_port') %>
-basedir		= /var/vcap/packages/mariadb
+basedir		= /var/vcap/store/mysql
 datadir		= /var/vcap/store/mysql
 tmpdir		= /var/vcap/sys/tmp/mysql
 #lc_messages_dir	= /usr/share/mysql
-lc_messages_dir	= /var/vcap/packages/mariadb/share
+lc_messages_dir	= /var/vcap/store/mysql/share
 lc_messages	= en_US
 skip-external-locking
 init-file = /var/vcap/jobs/mysql/config/mariadb_init
@@ -97,6 +97,13 @@ log-error		= /var/vcap/sys/log/mysql/mysql-log-error.err
 # we do want to know about network errors and such
 log_warnings		= 2
 #
+
+# CCE
+<% if p('mariadb.cce_enable') %>
+plugin_load_add= auth_ed25519
+slow_query_log = 1
+<% end %>
+
 # Enable the slow query log to see queries with especially long duration
 #slow_query_log[={0|1}]
 #slow_query_log_file	= /var/vcap/store/mysql/mariadb-slow.log
