@@ -38,3 +38,5 @@ properties:
     description: 'glusterfs username'
   glusterfs_password:
     description: 'glusterfs password'
+  swiftproxy_port:
+    default: 8080
