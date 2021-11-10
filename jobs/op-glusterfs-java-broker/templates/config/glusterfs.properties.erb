@@ -1,6 +1,6 @@
 glusterfs.authurl=http://<%= p('glusterfs_url')%>:5000
 glusterfs.endpoint=http://<%= p('glusterfs_url')%>:35357
-glusterfs.swiftproxy=http://<%= p('glusterfs_url')%>:8080
+glusterfs.swiftproxy=http://<%= p('glusterfs_url')%>:<%= p('swiftproxy_port')%>
 glusterfs.tenantname=<%= p('glusterfs_tenantname')%>
 glusterfs.username=<%= p('glusterfs_username')%>
 glusterfs.password=<%= p('glusterfs_password')%>
