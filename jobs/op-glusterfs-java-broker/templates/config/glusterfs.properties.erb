@@ -1,14 +1,15 @@
-glusterfs.authurl=http://<%= p('glusterfs_url')%>:5000
-glusterfs.endpoint=http://<%= p('glusterfs_url')%>:35357
+glusterfs.authurl=http://<%= p('glusterfs_url')%>:<%= p('auth_port')%>
+glusterfs.endpoint=http://<%= p('glusterfs_url')%>:<%= p('auth_port')%>
 glusterfs.swiftproxy=http://<%= p('glusterfs_url')%>:<%= p('swiftproxy_port')%>
 glusterfs.tenantname=<%= p('glusterfs_tenantname')%>
+glusterfs.domainname=<%= p('glusterfs_domainname')%>
 glusterfs.username=<%= p('glusterfs_username')%>
 glusterfs.password=<%= p('glusterfs_password')%>
 
 glusterfs.uri.account=/v1/KEY_#TENANT_ID
-glusterfs.uri.auth=/v2.0/tokens
-glusterfs.uri.createtenant=/v2.0/tenants
-glusterfs.uri.deletetenant=/v2.0/tenants/#TENANT_ID
-glusterfs.uri.createusers=/v2.0/users
-glusterfs.uri.userinfo=/v2.0/users?name=#USER_NAME
-glusterfs.uri.deleteusers=/v2.0/users/#USER_ID
+glusterfs.uri.auth=/v3/auth/tokens
+glusterfs.uri.createtenant=/v3/projects
+glusterfs.uri.deletetenant=/v3/projects/#TENANT_ID
+glusterfs.uri.createusers=/v3/users
+glusterfs.uri.userinfo=/v3/users?name=#USER_NAME
+glusterfs.uri.deleteusers=/v3/users/#USER_ID
