@@ -21,7 +21,7 @@
     $ git clone https://github.com/PaaS-TA/PAAS-TA-GLUSTERFS-RELEASE.git   
     $ cd PAAS-TA-GLUSTERFS-RELEASE
 
-    $ wget -O src.zip https://nextcloud.paas-ta.org/index.php/s/ERJXfYq8Gf6DY5s/download
+    $ wget -O src.zip https://nextcloud.paas-ta.org/index.php/s/MndniJwq3FYNDdg/download
     $ unzip src.zip
     $ rm -rf src.zip   
     ```   
