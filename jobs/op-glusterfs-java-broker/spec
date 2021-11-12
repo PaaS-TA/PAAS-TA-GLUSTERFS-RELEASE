@@ -44,3 +44,5 @@ properties:
     default: 8080
   auth_port:
     default: 15001
+  glusterfs_rolename:
+    default: member
