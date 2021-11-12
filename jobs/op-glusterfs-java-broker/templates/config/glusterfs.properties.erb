@@ -5,6 +5,7 @@ glusterfs.tenantname=<%= p('glusterfs_tenantname')%>
 glusterfs.domainname=<%= p('glusterfs_domainname')%>
 glusterfs.username=<%= p('glusterfs_username')%>
 glusterfs.password=<%= p('glusterfs_password')%>
+glusterfs.rolename=<%= p('glusterfs_rolename')%>
 
 glusterfs.uri.account=/v1/KEY_#TENANT_ID
 glusterfs.uri.auth=/v3/auth/tokens
@@ -13,3 +14,6 @@ glusterfs.uri.deletetenant=/v3/projects/#TENANT_ID
 glusterfs.uri.createusers=/v3/users
 glusterfs.uri.userinfo=/v3/users?name=#USER_NAME
 glusterfs.uri.deleteusers=/v3/users/#USER_ID
+glusterfs.uri.assignrole=/v3/projects/#TENANT_ID/users/#USER_ID/roles/#ROLE_ID
+glusterfs.uri.roleinfo=/v3/roles?name=#ROLE_NAME
+
