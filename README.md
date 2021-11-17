@@ -73,6 +73,9 @@
 ## PAAS-TA-GLUSTERFS-RELEASE   
 
 ### Notices        
+  - Use PAAS-TA-GLUSTERFS-RELEASE >= v.2.1.2 
+    - PaaS-TA >= v.5.6.2
+    - service-deployment >= v5.1.2
   - Use PAAS-TA-GLUSTERFS-RELEASE >= v.2.1.0 
     - PaaS-TA >= v.5.5.0
     - service-deployment >= v5.1.0
