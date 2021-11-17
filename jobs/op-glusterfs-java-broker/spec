@@ -46,3 +46,5 @@ properties:
     default: 15001
   glusterfs_rolename:
     default: member
+  glusterfs_timezone:
+    default: UTC

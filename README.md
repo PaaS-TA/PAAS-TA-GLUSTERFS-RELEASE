@@ -103,6 +103,10 @@
     ## <RELEASE_TARBALL_PATH> :: release file path (e.g. /home/ubuntu/workspace/paasta-glusterfs-<VERSION>.tgz)   
     $ bosh -e <bosh_name> create-release --name=paasta-glusterfs --version=<VERSION> --tarball=<RELEASE_TARBALL_PATH> --force   
     ```    
+  - [참고] submodule update
+    ```
+    $ git submodule sync --recursive && git submodule foreach --recursive git submodule sync  && git submodule update --init --recursive
+    ```
 ### Deployment   
 - https://github.com/PaaS-TA/service-deployment   
 
