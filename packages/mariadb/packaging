@@ -1,11 +1,11 @@
 # abort script on any command that exits with a non zero value
 set -e
 
-SRC_NAME=mariadb-10.5.9
+SRC_NAME=mariadb-10.5.*
 
 cp -r ${BOSH_COMPILE_TARGET}/mariadb/$SRC_NAME-linux-x86_64.tar.gz ${BOSH_INSTALL_TARGET}
-#MARIADB_VERSION=10.5.9
-## mariadb-10.5.9-linux-x86_64.tar.gz
+#MARIADB_VERSION=10.5.*
+## mariadb-10.5.*-linux-x86_64.tar.gz
 #tar xzf mariadb/mariadb-${MARIADB_VERSION}-linux-x86_64.tar.gz
 #(
 #  set -e
