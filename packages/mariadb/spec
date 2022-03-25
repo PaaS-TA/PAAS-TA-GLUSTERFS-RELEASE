@@ -4,4 +4,4 @@ name: mariadb
 dependencies:
 
 files:
-- mariadb/mariadb-10.5.9-linux-x86_64.tar.gz
+- mariadb/mariadb-10.5.*-linux-x86_64.tar.gz
