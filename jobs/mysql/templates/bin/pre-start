@@ -15,6 +15,10 @@ if [ ! -d "$DATA_DIR" ]; then
   BASE_DIR=/var/vcap/store/$JOB_NAME
   PKG_NAME=mariadb
   CONF_FILE=$BASE_DIR/my.cnf
+
+  # ubuntu jammy lib
+  sudo apt-get install libtinfo5 -y
+
   echo 1 @JOB_NAME
   tar zxf /var/vcap/packages/$PKG_NAME/mariadb-10.5.*-linux-x86_64.tar.gz -C /var/vcap/store/
 
